@@ -1,0 +1,115 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+    <!--    <link rel="icon" href="https://freeiconshop.com/wp-content/uploads/edd/pear-outline-filled.png">-->
+    <link rel="icon" href="/static/icon.png">
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css?{% now 'U' %}"/>
+    <title>Froots & Tools</title>
+</head>
+
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-light bg-light fixed-top">
+
+            <div class="logobutton">
+                <img id="icon" src="/static/icon.png" alt="Froots & Tools">
+                <a class="navbar-brand" href="http://localhost:8000/">F&T</a>
+            </div>
+            
+            <a href="http://localhost:8000/froots/">Froots</a>
+            <a href="http://localhost:8000/tools/">Tools</a>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="input-group">
+                        <form method="GET" action="/search">
+                            <input type="text" class="form-control" name="q" placeholder="Search for broduct...">
+                            <!--                            <span class="input-group-btn">-->
+                            <!--                                        <button class="btn btn-default" type="submit">Go!</button>-->
+                            <!--                            </span>-->
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+
+            <a href="http://localhost:8000/contacts/">Contacts</a>
+            <a href="http://localhost:8000/admin/">Admin</a>
+            <button type="button" class="btn btn-primary"> Primary</button>
+        </nav>
+
+        <div class="container">
+            <div>
+
+                <nav class="card sidebar">
+                    <a href="#">Sale</a>
+                    <a href="http://localhost:8000/new/">New</a>
+                    <a href="http://localhost:8000/contacts/">Contacts</a>
+                </nav>
+
+                <div class="products">
+
+                    {% block content %}
+                    {% endblock %}
+
+                    <br>
+                    <div>
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination">
+                                {% if has_previous or has_next %}
+                                    {% if has_previous %}
+                                        <li class="page-item"><a class="page-link" href="http://localhost:8000/{{ name_current }}/{{ page_previous }}">Previous</a></li>
+                                    {% else %}
+                                        <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+                                    {% endif %}
+
+                                    {% for p_n in number_of_pages %}
+                                        {% if p_n == page_current %}
+                                            <li class="page-item active"><a class="page-link" href="http://localhost:8000/{{ name_current }}/{{ p_n }}">{{ p_n }}</a></li>
+                                        {% else %}
+                                            <li class="page-item"><a class="page-link" href="http://localhost:8000/{{ name_current }}/{{ p_n }}">{{ p_n }}</a></li>
+                                        {% endif %}
+                                    {% endfor %}
+
+                                    {% if has_next %}
+                                        <li class="page-item"><a class="page-link" href="http://localhost:8000/{{ name_current }}/{{ page_next }}">Next</a></li>
+                                    {% else %}
+                                        <li class="page-item disabled"><a class="page-link" href="#">Next</a></li>
+                                    {% endif %}
+                                {% endif %}
+
+                            </ul>
+                        </nav>
+                    </div>
+                    <br>
+                </div>
+            </div>
+        </div>
+
+        <nav class="navbar bg-dark">
+            <br><br>
+            <text class="text-light">Broduct Technologies</text>
+            <br><br>
+        </nav>
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+                crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+                crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+                crossorigin="anonymous"></script>
+
+    </div>
+</body>
+</html>
