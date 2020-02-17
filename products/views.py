@@ -8,7 +8,7 @@ from re import findall
 # Create your views here.
 
 
-def paginator(typeofproduct, request_pag, passed_count=None):
+def paginated(typeofproduct, request_pag, passed_count=None):
     total_q = typeofproduct.count()
     current_address = HttpRequest.get_full_path(request_pag)
 
@@ -54,31 +54,31 @@ def paginator(typeofproduct, request_pag, passed_count=None):
 
 def broducts_view(request):
     typeofproduct = Broduct.objects.all().order_by('name')
-
-    return render(request, f'index.html', paginator(typeofproduct, request))
+    return render(request, 'index.html', paginated(typeofproduct, request))
 
 
 def searchbar_view(request):
     q = request.GET.get('q')
     search_result = Broduct.objects.filter(Q(name__icontains=q))
     search_counted = search_result.count()
-    return render(request, 'search.html', paginator(search_result, request, passed_count=ceil(search_counted / 9)))
+    a = paginated(search_result, request, passed_count=ceil(search_counted / 9))
+    a['q'] = q
+    return render(request, 'search.html', a)
 
 
 def froots_view(request):
-    typeofproduct = Broduct.objects.all().filter(category=0)
-
-    return render(request, f'froots.html', paginator(typeofproduct, request))
+    typeofproduct = Broduct.objects.filter(category=0)
+    return render(request, 'froots.html', paginated(typeofproduct, request))
 
 
 def tools_view(request):
     typeofproduct = Broduct.objects.filter(category=1)
-
-    return render(request, f'tools.html', paginator(typeofproduct, request))
+    return render(request, 'tools.html', paginated(typeofproduct, request))
 
 
 def new_view(request):
-    return render(request, 'new.html')
+    typeofproduct = Broduct.objects.filter(category=2)
+    return render(request, 'new.html', {'products': typeofproduct})
 
 
 def contacts_view(request):

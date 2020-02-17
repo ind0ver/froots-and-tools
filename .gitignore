@@ -1,0 +1,15 @@
+/.idea/.gitignore
+/.vs/djangoproject/v16/.suo
+/dbbackup/0001_initial.py
+/dbbackup/db-allbroducts.sqlite3
+/dbbackup/db-broductandtools.sqlite3
+/dbbackup/db-frootandtools.sqlite3
+/dbbackup/db-frootonly.sqlite3
+/.idea/djangoproject.iml
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/inspectionProfiles/Project_Default.xml
+/.vs/slnx.sqlite
+/.idea/vcs.xml
+/.vs/VSWorkspaceState.json
+/products/templates/selenium/
