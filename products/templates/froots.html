@@ -1,11 +1,9 @@
 {% extends 'base.html' %}
 
-<base href="/froots/"/>
-
 {% block content %}
 
 <h1>Froots</h1>
-<div class="row">
+<!-- <div class="row">
 
     {% for product in products %}
 
@@ -22,6 +20,8 @@
 
     {% endfor %}
 
-</div>
+</div> -->
+
+{% include "products.html" %}
 
 {% endblock %}
