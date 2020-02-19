@@ -5,7 +5,14 @@ from django.db.models import Q
 from math import ceil
 from re import findall
 
+
 # Create your views here.
+
+# TODO: sort out the hat;
+# TODO: add cart and checkout page;
+# TODO: fix bug when searching a;
+# TODO: fix sidebar, add roll-down there;
+# TODO: fix header;
 
 
 def paginated(typeofproduct, request_pag, passed_count=None):

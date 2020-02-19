@@ -3,18 +3,47 @@ html {
     box-sizing: border-box;
   }
 
+  
+
 body {
-position: relative;
-margin: 0;
-padding-bottom: 6rem;
-min-height: 91.5%;
-font-family: "Helvetica Neue", Arial, sans-serif;
+    position: relative;
+    margin: 0;
+    padding-bottom: 5rem;
+    min-height: 89.4%;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    background: #f8f9fa;
 }
 
 #icon {
     height: 45px;
     width: 45px;
     margin: 5px 10px 5px 20px;
+}
+
+
+#icon a {
+    float: left;
+    color: black;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px; 
+    line-height: 25px;
+    border-radius: 4px;
+}
+
+.input-group {
+    display: block;
+}
+
+.navbar.bg-light {
+    border: solid;
+    border-top: none;
+    border-color: lightgray;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    margin-left: 300px;
+    margin-right: 300px;
 }
 
 .navbar-brand {
@@ -43,6 +72,22 @@ font-family: "Helvetica Neue", Arial, sans-serif;
 
 .form-control {
     width: 100%;
+}
+
+.examples {
+    margin: 0;
+    font-size: 0.8rem;
+    color: gray;
+    position: absolute;
+    background-color: floralwhite;;
+    border: solid;
+    padding-right: 2.55rem;
+    padding-left: 0.8rem;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-top: none;
+    border-width: thin;
+    display: none;
 }
 
 .logobutton {
@@ -90,7 +135,7 @@ font-family: "Helvetica Neue", Arial, sans-serif;
 }
 
 .products {
-    margin: 80px 0 0 270px;
+    margin: 5rem 0 0 270px;
 }
 
 .navbar.bg-dark {
@@ -107,13 +152,7 @@ font-family: "Helvetica Neue", Arial, sans-serif;
     padding: 0px 5px;
 }
 
-
-
-
-
-
-
-
-
-
-
+.qe {
+    font-style: italic;
+    color: #343a40;
+}
